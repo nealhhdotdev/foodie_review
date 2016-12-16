@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   # GET /reviews.json
   def index
     @reviews = Review.all
+    @restaurant = Restaurant.all
   end
 
   # GET /reviews/1
@@ -69,6 +70,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:author, :body, :rating)
+      params.require(:review).permit(:author, :body, :rating, :restaurant_id)
     end
 end
