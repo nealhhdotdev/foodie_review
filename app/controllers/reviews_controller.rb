@@ -26,11 +26,15 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-
+    rp = review_params
+    res_name = rp[:restaurant_id]
+    res = Restaurant.where(:name => res_name)
+    res.each {|r| @review.restaurant_id = r.id.to_i}
+    
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
+        format.html { redirect_to :action => 'index', notice: 'Review was successfully created.' }
+        format.json { render :action => 'index', status: :created, location: @review }
       else
         format.html { render :new }
         format.json { render json: @review.errors, status: :unprocessable_entity }
