@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
     
     respond_to do |format|
       if @review.save
-        format.html { redirect_to :action => 'index', notice: 'Review was successfully created.' }
+        format.html { redirect_to reviews_url, notice: 'Review was successfully created.' }
         format.json { render :action => 'index', status: :created, location: @review }
       else
         format.html { render :new }
@@ -45,8 +45,14 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
+    rp = review_params
+    res_name = rp[:restaurant_id]
+    res = Restaurant.where(:name => res_name)
+    res.each {|r| @restaurant_id = r.id.to_i}
+    rp[:restaurant_id] = @restaurant_id
+    
     respond_to do |format|
-      if @review.update(review_params)
+      if @review.update(rp)
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
