@@ -24,8 +24,8 @@
     <%= f.text_area :body, :cols => "45", :rows => "15" %>
   </div>
   <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
+    <%= f.label "Rate this restaurant from 1 to 5" %><br>
+    <%= f.number_field :rating, :min => 1, :max => 5 %>
   </div>
   <div class="actions">
     <%= f.submit %>
