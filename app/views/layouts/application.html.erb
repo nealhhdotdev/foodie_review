@@ -9,11 +9,15 @@
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+  
   </head>
-
+<h5 class = "mh-header">TheFoodieReview</h5>
+<br>
+<br>
   <body>
 
     <%= yield %>
 
   </body>
+  <%= link_to 'New Review', new_review_path %>
 </html>

@@ -2,10 +2,11 @@
 
 @import 'settings';
 @import 'foundation';
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 // If you'd like to include motion-ui the foundation-rails gem comes prepackaged with it, uncomment the 3 @imports, if you are not using the gem you need to install the motion-ui sass package.
 //
-// @import 'motion-ui/motion-ui';
+@import 'motion-ui/motion-ui';
 
 // We include everything by default.  To slim your CSS, remove components you don't use.
 
@@ -47,10 +48,12 @@
 @include foundation-tooltip;
 @include foundation-top-bar;
 
+
+
 // If you'd like to include motion-ui the foundation-rails gem comes prepackaged with it, uncomment the 3 @imports, if you are not using the gem you need to install the motion-ui sass package.
 //
-// @include motion-ui-transitions;
-// @include motion-ui-animations;
+@include motion-ui-transitions;
+@include motion-ui-animations;
  
  
  
@@ -107,3 +110,23 @@ $warning: #F89406;
     color: #333;
     }
 }
+
+
+.mh-header{
+  font-family: 'Quicksand', sans-serif;
+  
+}
+
+.sticky {
+  width: 100%;
+}
+
+.top-bar, .top-bar ul {
+    background-color: #fefefe;
+    
+}
+
+.main-rev-cont {
+  
+}
+

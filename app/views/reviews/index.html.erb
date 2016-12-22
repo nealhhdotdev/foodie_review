@@ -6,35 +6,17 @@
 <% else %>
 <% end %>
 
-
-<h1>Listing Restaurant Reviews</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Author</th>
-      <th>Restaurant</th>
-      <th>Body Summary</th>
-      <th>Rating</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody  align = 'center'>
+<ul class="main-rev-cont">
     <% @reviews.each do |review| %>
-      <tr>
-        <td><%= review.author %></td>
-        <td><%= Restaurant.find_by_id(review.restaurant_id).name %></td>
-        <td align = "left"><%= truncate(review.body, :length => 800) %></td>
-        <td><%= review.rating %></td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li>
+          <strong><%= review.author %></strong> Reviews <%= Restaurant.find_by_id(review.restaurant_id).name %><br>
+          Reviewer's rating:<%= review.rating %> out of 5<br><br>
+          <%= truncate(review.body, :length => 800) %>
+          <%= link_to 'Show', review %>
+          <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <br><br><br><br>
+      </li>
     <% end %>
-  </tbody>
-</table>
+</ul>    
+  
 
-<br>
-
-<%= link_to 'New Review', new_review_path %>

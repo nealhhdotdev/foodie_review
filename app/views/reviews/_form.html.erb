@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label "Select a restaurant to review" %><br>
-    <%= f.select :restaurant_id, Restaurant.all.map {|r| [r.name] } %>
+    <%= f.select :restaurant_id, Restaurant.all.map {|r| [r.name] }, :selected => Restaurant.find_by_id(@review.restaurant_id).name %>
   </div>
   <div class="field">
     <%= f.label :body %><br>

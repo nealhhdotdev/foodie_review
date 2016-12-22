@@ -18,7 +18,10 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 
 #foundation front-end framework 
-gem 'foundation-rails'
+ gem 'foundation-rails'
+
+#gem to help foundation and turbolinks work together
+gem 'jquery-turbolinks'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
