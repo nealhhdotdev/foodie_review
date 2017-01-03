@@ -11,13 +11,57 @@
     <%= csrf_meta_tags %>
   
   </head>
-<h5 class = "mh-header">TheFoodieReview</h5>
-<br>
-<br>
-  <body>
 
-    <%= yield %>
 
-  </body>
-  <%= link_to 'New Review', new_review_path %>
-</html>
+  <div class="row">
+    
+    <div class="large-3 columns">
+    
+      <div class="row" data-sticky-container> 
+          <div class="top-bar" data-sticky data-options="marginTop:0;stickyOn:small">
+            <div class="top-bar-left">
+              <h4 class = "mh-header">TheFoodieReview</h4>
+              <button class ="mh-header hollow button alert">Logout</button>
+              <button class ="mh-header hollow button success">Home</button>
+              <button class ="mh-header hollow button success">About</button>
+              <button class ="mh-header hollow button success">Contact</button>
+            </div>
+          </div>
+      </div>
+      <h4 class = "sub-head" align = "center">Food Review For Foodies..</h4>
+      <label>
+        <input type="text" placeholder="Find a reviewer">
+      </label>
+      <br><br>
+      
+      
+      <div align = "center">
+        <div>
+          <% @reviews.each do |review| %>
+                <h6><strong><%= review.author %></strong> Reviews <%= Restaurant.find_by_id(review.restaurant_id).name %></h6><br>
+                <%= image_tag("http://www.petsprin.com/i/2016/10/delicious-food-wallpapers-full-hd.jpg") %>
+                <p>Reviewer's rating:<%= review.rating %> out of 5<br><br>
+                <%= truncate(review.body, :length => 800) %>
+                <strong><%= link_to 'Continue Reading', review %></strong>
+                <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></p><br>
+          <% end %>
+        </div>  
+      </div>  
+    
+    </div>
+    
+    
+    <div class="large-9 columns">
+      
+        <body>
+          <%= yield %>
+        </body>
+        
+    </div>
+    
+  </div>  
+    
+    <!-- <%= link_to 'New Review', new_review_path %> -->
+  </html>
+  
+  

@@ -3,6 +3,7 @@
 @import 'settings';
 @import 'foundation';
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Scada:400,700');
 
 // If you'd like to include motion-ui the foundation-rails gem comes prepackaged with it, uncomment the 3 @imports, if you are not using the gem you need to install the motion-ui sass package.
 //
@@ -123,10 +124,14 @@ $warning: #F89406;
 
 .top-bar, .top-bar ul {
     background-color: #fefefe;
+    padding:0rem!important;
     
 }
 
-.main-rev-cont {
-  
+.sub-head {
+  font-family: 'Scada', sans-serif ;
 }
+
+
+
 
