@@ -12,7 +12,7 @@
           <h3 class = "sub-head"><strong><%= review.author %></strong> Reviews <%= Restaurant.find_by_id(review.restaurant_id).name %></h3><br>
           <%= image_tag("http://www.public-domain-photos.com/free-stock-photos-4/food/crawfish-3.jpg") %>
           <p>Reviewer's rating:<%= review.rating %> out of 5<br><br>
-          <%= truncate(review.body, :length => 800) %>
+          <div class="main-body-text"><%= truncate(review.body, :length => 1500) %></div>
           <strong><%= link_to 'Continue Reading', review %></strong>
           <%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></p><br>
     <% end %>
